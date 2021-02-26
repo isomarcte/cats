@@ -201,6 +201,12 @@ trait OptionInstances extends cats.kernel.instances.OptionInstances {
           case None    => "None"
         }
     }
+
+  implicit def catsStdShowKForOption: ShowK[Option] =
+    new ShowK[Option] {
+      override def showK[A](fa: Option[A])(implicit A: Show[A]): String =
+        Show[Option[A]].show(fa)
+    }
 }
 
 private[instances] trait OptionInstancesBinCompat0 {

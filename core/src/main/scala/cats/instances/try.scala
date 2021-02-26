@@ -168,6 +168,12 @@ trait TryInstances extends TryInstances1 {
           case _                        => false
         }
     }
+
+  implicit def catsStdShowKForTry: ShowK[Try] =
+    new ShowK[Try] {
+      override def showK[A](fa: Try[A])(implicit A: Show[A]): String =
+        Show[Try[A]].show(fa)
+    }
 }
 
 private[instances] object TryInstances {

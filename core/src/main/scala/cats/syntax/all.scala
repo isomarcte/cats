@@ -54,6 +54,7 @@ trait AllSyntax
     with SemigroupSyntax
     with SemigroupKSyntax
     with ShowSyntax
+    with ShowKSyntax
     with StrongSyntax
     with TraverseSyntax
     with NonEmptyTraverseSyntax
